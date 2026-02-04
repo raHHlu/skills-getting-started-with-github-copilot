@@ -25,12 +25,25 @@
         border: 1px solid rgba(102,132,255,0.06);
       }
       .participants h5 { margin: 0 0 6px; font-size: 0.92rem; display:flex; justify-content:space-between; align-items:center; }
-      .participants-list { list-style: disc; padding-left: 18px; margin: 0; color: #333; }
+      .participants-list { list-style: none; padding-left: 0; margin: 0; color: #333; }
       .participant { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
       .avatar {
         width: 28px; height: 28px; border-radius: 50%;
         background: #6b8cff; color: #fff; display:inline-flex;
         align-items:center; justify-content:center; font-size: 0.78rem;
+      }
+      .delete-participant {
+        background: none;
+        border: none;
+        color: #dc2626;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0;
+        margin-left: auto;
+        transition: color 0.2s;
+      }
+      .delete-participant:hover {
+        color: #991b1b;
       }
       .empty-note { color:#6b7280; font-size:0.9rem; }
       /* Toggle control styling */
