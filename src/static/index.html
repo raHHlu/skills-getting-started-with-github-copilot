@@ -33,6 +33,22 @@
         align-items:center; justify-content:center; font-size: 0.78rem;
       }
       .empty-note { color:#6b7280; font-size:0.9rem; }
+      /* Toggle control styling */
+      .participants-toggle {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .participants-toggle-checkbox {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      .toggle-label {
+        font-size: 0.9rem;
+        color: #333;
+      }
     </style>
   </head>
   <body>
@@ -54,6 +70,14 @@
             <h4 class="activity-title">Activity title</h4>
             <div class="activity-meta">Instructor · Schedule</div>
             <p class="activity-desc">Short description of the activity.</p>
+
+            <!-- Toggle to show/hide participants -->
+            <div class="participants-toggle">
+              <label>
+                <input type="checkbox" class="participants-toggle-checkbox" aria-controls="participants-list" />
+                <span class="toggle-label">Show participants</span>
+              </label>
+            </div>
 
             <div class="participants" aria-label="Participants">
               <h5>
