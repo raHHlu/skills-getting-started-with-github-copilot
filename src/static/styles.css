@@ -142,3 +142,20 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.participants-toggle {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.participants-toggle input[type="checkbox"] {
+  margin-right: 8px;
+  transform: translateY(1px);
+}
+
+.toggle-label {
+  font-weight: 600;
+  color: #0f172a;
+}

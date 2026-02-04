@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mergington High School Activities</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Activity card & participants styling */
+      .activities-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      .activity-card {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 10px;
+        padding: 14px;
+        box-shadow: 0 6px 18px rgba(27,31,35,0.04);
+      }
+      .activity-card h4 { margin: 0 0 8px; font-size: 1.05rem; }
+      .activity-meta { color: #555; font-size: 0.9rem; margin-bottom: 10px; }
+      .participants {
+        margin-top: 8px;
+        background: linear-gradient(180deg,#fbfdff,#f7fbff);
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(102,132,255,0.06);
+      }
+      .participants h5 { margin: 0 0 6px; font-size: 0.92rem; display:flex; justify-content:space-between; align-items:center; }
+      .participants-list { list-style: none; padding-left: 0; margin: 0; color: #333; }
+      .participant { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+      .avatar {
+        width: 28px; height: 28px; border-radius: 50%;
+        background: #6b8cff; color: #fff; display:inline-flex;
+        align-items:center; justify-content:center; font-size: 0.78rem;
+      }
+      .delete-participant {
+        background: none;
+        border: none;
+        color: #dc2626;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0;
+        margin-left: auto;
+        transition: color 0.2s;
+      }
+      .delete-participant:hover {
+        color: #991b1b;
+      }
+      .empty-note { color:#6b7280; font-size:0.9rem; }
+      /* Toggle control styling */
+      .participants-toggle {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .participants-toggle-checkbox {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      .toggle-label {
+        font-size: 0.9rem;
+        color: #333;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -15,10 +73,37 @@
     <main>
       <section id="activities-container">
         <h3>Available Activities</h3>
-        <div id="activities-list">
-          <!-- Activities will be loaded here -->
-          <p>Loading activities...</p>
+        <div id="activities-list" class="activities-grid" aria-live="polite">
+          <!-- Activities will be loaded here by app.js -->
         </div>
+
+        <!-- Template for activity cards: clone and fill via JS -->
+        <template id="activity-card-template">
+          <article class="activity-card" role="article">
+            <h4 class="activity-title">Activity title</h4>
+            <div class="activity-meta">Instructor · Schedule</div>
+            <p class="activity-desc">Short description of the activity.</p>
+
+            <!-- Toggle to show/hide participants -->
+            <div class="participants-toggle">
+              <label>
+                <input type="checkbox" class="participants-toggle-checkbox" aria-controls="participants-list" />
+                <span class="toggle-label">Show participants</span>
+              </label>
+            </div>
+
+            <div class="participants" aria-label="Participants">
+              <h5>
+                Participants
+                <small class="participants-count" aria-hidden="true">0</small>
+              </h5>
+              <ul class="participants-list">
+                <!-- <li class="participant"><span class="avatar">AB</span><span class="name">Alex Brown</span></li> -->
+              </ul>
+              <div class="empty-note" hidden>No one has signed up yet.</div>
+            </div>
+          </article>
+        </template>
       </section>
 
       <section id="signup-container">
